@@ -57,7 +57,7 @@ const SlideIn = () => {
         <tbody>
           {stockOutData.map((item, idx) => (
             <tr key={idx}>
-              <td className="product-name"><input type="checkbox" />Product 01<br /><span className="sku">(SKU)</span></td>
+                <td className="product-name"><span  className="checkbox"><input type="checkbox"/></span><span>Product 01<br /><span className="sku">(SKU)</span></span></td>
       
               <td>{item.quantity}</td>
               <td>{item.warehouse}</td>

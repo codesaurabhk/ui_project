@@ -6,6 +6,8 @@ import SlideOut from './components/SlideOut'
 import StockIn from './components/StockIn'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import StockTransfer from './components/StockTransfer'
+import Warehouse from './components/Warehouse'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
@@ -14,9 +16,10 @@ function App() {
   return (
     <>
 
-  {/* <SlideOut/> */}
-  {/* <StockIn/> */}
-  <StockTransfer/>
+  {/* <SlideOut/>
+  <StockIn/>
+  <StockTransfer/> */}
+  <Warehouse/>
     </>
   )
 }

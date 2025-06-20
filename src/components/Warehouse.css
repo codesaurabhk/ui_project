@@ -1,0 +1,53 @@
+.gradient-bar {
+  background: linear-gradient(to right, #00bfff, #0047ab); /* light blue to dark blue */
+  color: white; /* optional, to make text readable */
+}
+.container-main{
+  margin-left: 2vw;
+  margin-top: 2vw;
+  height: 19vh;
+  width: 95vw;
+  border: 2px solid rgb(190, 189, 189);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 10px;
+}
+.heading{
+  margin-top: 2vh;
+  margin-left: 1vw;
+  margin-bottom: 0;
+  /* background-color: #0047ab; */
+}
+.desc{
+/* background-color: #0047ab; */
+  margin-left: 1vw;
+  margin-top: 5vh;
+  color: gray;
+}
+.hero-sec{
+  background-color: rgb(241, 246, 247);
+  display:  flex;
+  justify-content: space-between;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  height: 10vh;
+  border-radius: 10px;
+}
+.first{
+  margin-top: 2vh;
+  margin-left: 2vh;
+}
+.first span{
+  color: rgba(99, 99, 99, 0.979);
+}
+.progress-br{
+  width: 60vw;
+  margin-top: 4vh;
+}
+.progress-br span{
+   color: rgba(99, 99, 99, 0.979);
+}
+.last{
+  margin-right: 1vw;
+  margin-top: 2vh;
+}
