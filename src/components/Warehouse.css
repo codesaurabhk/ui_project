@@ -22,16 +22,16 @@
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 10px;
-  /* background-color: white; */
+ 
 }
 .heading{
-  margin-top: 2vh;
+  margin-top: 1vh;
   margin-left: 1vw;
   margin-bottom: 0;
-  /* background-color: #0047ab; */
+  
 }
 .desc{
-/* background-color: #0047ab; */
+
   margin-left: 1vw;
   margin-top: 5vh;
   color: gray;
@@ -46,7 +46,7 @@
   border-radius: 10px;
 }
 .first{
-  margin-top: 2vh;
+  margin-top: 1vh;
   margin-left: 2vh;
 }
 .first span{
@@ -64,6 +64,6 @@
   margin-top: 2vh;
 }
 .gradient-bar {
-  background: linear-gradient(to right, #00bfff, #0047ab); /* light blue to dark blue */
-  color: white; /* optional, to make text readable */
+  background: linear-gradient(to right, #00bfff, #0047ab); 
+  color: white; 
 }

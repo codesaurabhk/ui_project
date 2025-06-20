@@ -16,9 +16,9 @@ function App() {
   return (
     <>
 
-  {/* <SlideOut/>
-  <StockIn/>
-  <StockTransfer/> */}
+   {/* <SlideOut/> */}
+  {/* <StockIn/>  */}
+   {/* <StockTransfer/>  */}
   <Warehouse/>
     </>
   )

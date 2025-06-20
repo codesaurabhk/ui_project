@@ -22,14 +22,14 @@ const Warehouse = () => {
       <h2 className="selectw">Select Warehouse</h2> 
     {WarehouseData.map((itm)=>(
       <div className="container-main">
-        <h4 className="heading">{itm.head}</h4>
+        <h5 className="heading">{itm.head}</h5>
 
         <span className="desc">{itm.desc}</span>
         <div className="hero-sec">
           <div>
             <div className="first">
               <span>{itm.stored}</span>
-              <h2>{itm.items}</h2>
+              <h3>{itm.items}</h3>
               <br />
             </div>
           </div>
