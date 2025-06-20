@@ -17,8 +17,9 @@ const WarehouseData = [
 
 const Warehouse = () => {
   return (
-    <div >
-      <h2>Select Warehouse</h2> 
+    <div className="fst">
+    <div className="main-div">
+      <h2 className="selectw">Select Warehouse</h2> 
     {WarehouseData.map((itm)=>(
       <div className="container-main">
         <h4 className="heading">{itm.head}</h4>
@@ -57,7 +58,7 @@ const Warehouse = () => {
         </div>
       </div>
       ))}
-    </div>
+    </div></div>
   );
 };
 
