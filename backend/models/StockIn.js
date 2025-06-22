@@ -1,38 +1,31 @@
 const mongoose = require("mongoose");
 
-const warehouseSchema = new mongoose.Schema({
-    head: {
+const StockINSchema = new mongoose.Schema({
+    quantity: {
         type: String,
         required: true,
     },
-    desc: {
+    warehouse: {
         type: String,
         required: true,
     },
-    stored: {
+    Supplier: {
         type: String,
         required: true,
     },
-    items: {
+    date: {
         type: String,
         required: true,
     },
-    capacity: {
+    by: {
         type: String,
         required: true,
     },
-    progress: {
+    remarks: {
         type: String,
         required: true,
     },
-    stock: {
-        type: String,
-        required: true,
-    },
-    no: {
-        type: String,
-        required: true,
-    },
+
 });
 
-module.exports = mongoose.model("Warehouse", warehouseSchema);
+module.exports = mongoose.model("StockIn", StockINSchema);
