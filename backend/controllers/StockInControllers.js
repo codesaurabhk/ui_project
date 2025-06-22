@@ -43,5 +43,5 @@ const deleteStockIn = async (req, res) => {
     }
 };
 
-module.exports = {createStockIn,updateStockIn,deleteStockIn,getStockIn,};
+module.exports = { createStockIn, updateStockIn, deleteStockIn, getStockIn, };
 
