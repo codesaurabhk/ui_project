@@ -18,8 +18,8 @@ function App() {
 
    {/* <SlideOut/> */}
   {/* <StockIn/>  */}
-   {/* <StockTransfer/>  */}
-  <Warehouse/>
+   <StockTransfer/> 
+  {/* <Warehouse/> */}
     </>
   )
 }

@@ -10,8 +10,14 @@ const cors = require("cors");
 dotenv.config();
 connectDB();
 
+const corsOptions = {
+    origin : "http://localhost:5173",
+    methods: "GET , POST , PUT , DELETE ,PATCH, HEAD",
+    Credential:true,
+};
+
 const app = express();
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use("/api/warehouses", warehouseRoutes);

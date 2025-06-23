@@ -1,26 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Warehouse.css"; 
 
-const WarehouseData = [
-  { head: "Warehouse Noida", desc: "Noida, Sec-32 • Ajay Mehta", stored: "Total items Stored", items: "55485 Items",capacity:"Capacity Utilization" ,progess: "87%", stock: "Out of Stock item", no: "13 items" },
-  { head: "Warehouse Noida", desc: "Noida, Sec-32 • Ajay Mehta", stored: "Total items Stored", items: "55485 Items",capacity:"Capacity Utilization" ,progess: "57%", stock: "Out of Stock item", no: "13 items" },
-  { head: "Warehouse Noida", desc: "Noida, Sec-32 • Ajay Mehta", stored: "Total items Stored", items: "55485 Items",capacity:"Capacity Utilization" ,progess: "71%", stock: "Out of Stock item", no: "13 items" },
-  { head: "Warehouse Noida", desc: "Noida, Sec-32 • Ajay Mehta", stored: "Total items Stored", items: "55485 Items",capacity:"Capacity Utilization" ,progess: "18%", stock: "Out of Stock item", no: "13 items" },
-  { head: "Warehouse Noida", desc: "Noida, Sec-32 • Ajay Mehta", stored: "Total items Stored", items: "55485 Items",capacity:"Capacity Utilization" ,progess: "97%", stock: "Out of Stock item", no: "13 items" },
-  { head: "Warehouse Noida", desc: "Noida, Sec-32 • Ajay Mehta", stored: "Total items Stored", items: "55485 Items",capacity:"Capacity Utilization" ,progess: "87%", stock: "Out of Stock item", no: "13 items" },
-  { head: "Warehouse Noida", desc: "Noida, Sec-32 • Ajay Mehta", stored: "Total items Stored", items: "55485 Items",capacity:"Capacity Utilization" ,progess: "87%", stock: "Out of Stock item", no: "13 items" },
-  { head: "Warehouse Noida", desc: "Noida, Sec-32 • Ajay Mehta", stored: "Total items Stored", items: "55485 Items",capacity:"Capacity Utilization" ,progess: "87%", stock: "Out of Stock item", no: "13 items" },
-  { head: "Warehouse Noida", desc: "Noida, Sec-32 • Ajay Mehta", stored: "Total items Stored", items: "55485 Items",capacity:"Capacity Utilization" ,progess: "87%", stock: "Out of Stock item", no: "13 items" },
-  { head: "Warehouse Noida", desc: "Noida, Sec-32 • Ajay Mehta", stored: "Total items Stored", items: "55485 Items",capacity:"Capacity Utilization" ,progess: "87%", stock: "Out of Stock item", no: "13 items" },
+// const WarehouseData = [
+//   { head: "Warehouse Noida", desc: "Noida, Sec-32 • Ajay Mehta", stored: "Total items Stored", items: "55485 Items",capacity:"Capacity Utilization" ,progess: "87%", stock: "Out of Stock item", no: "13 items" },
+//   { head: "Warehouse Noida", desc: "Noida, Sec-32 • Ajay Mehta", stored: "Total items Stored", items: "55485 Items",capacity:"Capacity Utilization" ,progess: "57%", stock: "Out of Stock item", no: "13 items" },
+//   { head: "Warehouse Noida", desc: "Noida, Sec-32 • Ajay Mehta", stored: "Total items Stored", items: "55485 Items",capacity:"Capacity Utilization" ,progess: "71%", stock: "Out of Stock item", no: "13 items" },
+//   { head: "Warehouse Noida", desc: "Noida, Sec-32 • Ajay Mehta", stored: "Total items Stored", items: "55485 Items",capacity:"Capacity Utilization" ,progess: "18%", stock: "Out of Stock item", no: "13 items" },
+//   { head: "Warehouse Noida", desc: "Noida, Sec-32 • Ajay Mehta", stored: "Total items Stored", items: "55485 Items",capacity:"Capacity Utilization" ,progess: "97%", stock: "Out of Stock item", no: "13 items" },
+//   { head: "Warehouse Noida", desc: "Noida, Sec-32 • Ajay Mehta", stored: "Total items Stored", items: "55485 Items",capacity:"Capacity Utilization" ,progess: "87%", stock: "Out of Stock item", no: "13 items" },
+//   { head: "Warehouse Noida", desc: "Noida, Sec-32 • Ajay Mehta", stored: "Total items Stored", items: "55485 Items",capacity:"Capacity Utilization" ,progess: "87%", stock: "Out of Stock item", no: "13 items" },
+//   { head: "Warehouse Noida", desc: "Noida, Sec-32 • Ajay Mehta", stored: "Total items Stored", items: "55485 Items",capacity:"Capacity Utilization" ,progess: "87%", stock: "Out of Stock item", no: "13 items" },
+//   { head: "Warehouse Noida", desc: "Noida, Sec-32 • Ajay Mehta", stored: "Total items Stored", items: "55485 Items",capacity:"Capacity Utilization" ,progess: "87%", stock: "Out of Stock item", no: "13 items" },
+//   { head: "Warehouse Noida", desc: "Noida, Sec-32 • Ajay Mehta", stored: "Total items Stored", items: "55485 Items",capacity:"Capacity Utilization" ,progess: "87%", stock: "Out of Stock item", no: "13 items" },
   
-];
+// ];
 
 const Warehouse = () => {
+   const [Warehouse, setWarehouse] = useState([]);
+   const [Error, setError] = useState(null);
+  useEffect(() => {
+    const fetchWarehouseData = async ()=>{
+      try {
+        const response = await fetch("http://localhost:5000/api/warehouses/");
+        if (!response.ok) {
+          throw new Error ("Failed to fetch stock in data");
+        }
+        const data = await response.json();
+        setWarehouse(data);
+        // console.log(data);
+        
+      } catch (err) {
+        setError(err.message);
+      }
+    };
+  fetchWarehouseData();
+    
+  }, []);
   return (
     <div className="fst">
     <div className="main-div">
       <h2 className="selectw">Select Warehouse</h2> 
-    {WarehouseData.map((itm)=>(
+    {Warehouse.map((itm)=>(
       <div className="container-main">
         <h5 className="heading">{itm.head}</h5>
 
@@ -44,8 +64,8 @@ const Warehouse = () => {
             aria-valuemin="0"
             aria-valuemax="100"
           >
-            <div className="progress-bar gradient-bar" style={{ width: itm.progess }}>
-              {itm.progess}
+            <div className="progress-bar gradient-bar" style={{ width: itm.progress }}>
+              {itm.progress} 
             </div>
           </div></div>
 

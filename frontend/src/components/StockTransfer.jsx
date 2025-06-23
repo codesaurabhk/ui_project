@@ -1,19 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./StockTransfer.css";
 
-const stockOutData = [
-  { quantity: "85 Kg", warehouse: "WH-01", towarehouse: "AB Industries",  date: "Today", by: "Ramesh", remarks: "--" },
-  { quantity: "22 Kg", warehouse: "WH-01", towarehouse: "AB Traders", date: "Yesterday", by: "Suresh", remarks: "--" },
-  { quantity: "567 Boxes", warehouse: "WH-04", towarehouse: "AB Traders",  date: "13/06/2025", by: "Rakesh", remarks: "53 Boxes are Damaged" },
-  { quantity: "654 Bundle", warehouse: "WH-02", towarehouse: "AB Traders",  date: "13/06/2025", by: "Ram", remarks: "--" },
-  { quantity: "654 Bundle", warehouse: "WH-02", towarehouse: "AB Traders",  date: "13/06/2025", by: "Ram", remarks: "--" },
-  { quantity: "654 Bundle", warehouse: "WH-02", towarehouse: "AB Traders",  date: "13/06/2025", by: "Ram", remarks: "Need more 1000 Ltr" },
-  { quantity: "654 Bundle", warehouse: "WH-02", towarehouse: "AB Traders",  date: "13/06/2025", by: "Ram", remarks: "--" },
-  { quantity: "654 Bundle", warehouse: "WH-02", towarehouse: "AB Traders",  date: "13/06/2025", by: "Ram", remarks: "--" },
-  { quantity: "889 Ltr", warehouse: "WH-06", towarehouse : "AB Traders",  date: "12/06/2025", by: "Shayam", remarks: "Need more 1000 Ltr" },
-];
+// const stockOutData = [
+//   { quantity: "85 Kg", warehouse: "WH-01", towarehouse: "AB Industries",  date: "Today", by: "Ramesh", remarks: "--" },
+//   { quantity: "22 Kg", warehouse: "WH-01", towarehouse: "AB Traders", date: "Yesterday", by: "Suresh", remarks: "--" },
+//   { quantity: "567 Boxes", warehouse: "WH-04", towarehouse: "AB Traders",  date: "13/06/2025", by: "Rakesh", remarks: "53 Boxes are Damaged" },
+//   { quantity: "654 Bundle", warehouse: "WH-02", towarehouse: "AB Traders",  date: "13/06/2025", by: "Ram", remarks: "--" },
+//   { quantity: "654 Bundle", warehouse: "WH-02", towarehouse: "AB Traders",  date: "13/06/2025", by: "Ram", remarks: "--" },
+//   { quantity: "654 Bundle", warehouse: "WH-02", towarehouse: "AB Traders",  date: "13/06/2025", by: "Ram", remarks: "Need more 1000 Ltr" },
+//   { quantity: "654 Bundle", warehouse: "WH-02", towarehouse: "AB Traders",  date: "13/06/2025", by: "Ram", remarks: "--" },
+//   { quantity: "654 Bundle", warehouse: "WH-02", towarehouse: "AB Traders",  date: "13/06/2025", by: "Ram", remarks: "--" },
+//   { quantity: "889 Ltr", warehouse: "WH-06", towarehouse : "AB Traders",  date: "12/06/2025", by: "Shayam", remarks: "Need more 1000 Ltr" },
+// ];
 
 const StockTransfer = () => {
+   const [StocktransferData, setStocktransferData] = useState([]);
+     const [Error, setError] = useState(null);
+    useEffect(() => {
+      const fetchStockInData = async ()=>{
+        try {
+          const response = await fetch("http://localhost:5000/api/stocktransfer/");
+          if (!response.ok) {
+            throw new Error ("Failed to fetch stock in data");
+          }
+          const data = await response.json();
+          setStocktransferData(data);
+        } catch (err) {
+          setError(err.message);
+        }
+      };
+    fetchStockInData();
+      
+    }, []);
   return (
     <div className="container">
       <div className="filters">
@@ -55,7 +73,7 @@ const StockTransfer = () => {
           </tr>
         </thead>
         <tbody>
-          {stockOutData.map((item, idx) => (
+          {StocktransferData.map((item, idx) => (
             <tr key={idx}>
               <td className="product-name"><span  className="checkbox"><input type="checkbox"/></span><span>Product 01<br /><span className="sku">(SKU)</span></span></td>
       
