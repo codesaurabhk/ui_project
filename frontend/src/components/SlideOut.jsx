@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./SlideOut.css";
+import { Link } from "react-router-dom";
 
 // const stockOutData = [
 //   { quantity: "85 Kg", warehouse: "WH-01", customer: "AB Industries", purpose: "Replace", date: "Today", by: "Ramesh", remarks: "--" },
@@ -56,9 +57,12 @@ const SlideOut = () => {
         </select>
       </div>
       <div className="tabs">
-        <button >Stock In</button>
-        <button className="active">Stock Out</button>
-        <button>Stock Transfer</button>
+        {/* <button > <Link to="/stockin" >Stock In</Link></button>
+        <button className="active"><Link to="/stockout" >Stock Out</Link></button>
+        <button>Stock Transfer</button> */}
+        <button > <Link to="/stockin" >Stock In</Link></button>
+        <button className="active"><Link to="/slideout" >Stock Out</Link></button>
+        <button><Link to="/stocktransfer" >Stock Transfer </Link></button>
       </div>
        <table className="stock-table">
        <thead>

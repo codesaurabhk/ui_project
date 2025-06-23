@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./StockTransfer.css";
+import { Link } from "react-router-dom";
 
 // const stockOutData = [
 //   { quantity: "85 Kg", warehouse: "WH-01", towarehouse: "AB Industries",  date: "Today", by: "Ramesh", remarks: "--" },
@@ -54,9 +55,9 @@ const StockTransfer = () => {
         </select>
       </div>
       <div className="tabs">
-        <button >Stock In</button>
-        <button >Stock Out</button>
-        <button className="active">Stock Transfer</button>
+       <button > <Link to="/stockin" >Stock In</Link></button>
+        <button ><Link to="/slideout" >Stock Out</Link></button>
+        <button className="active"><Link to="/stocktransfer" >Stock Transfer </Link></button>
       </div>
        <table className="stock-table">
        <thead>

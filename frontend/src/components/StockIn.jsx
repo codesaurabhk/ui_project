@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./StockIn.css";
+import { Link } from "react-router-dom";
 
 // const stockInData = [
 //   { quantity: "85 Kg", warehouse: "WH-01", Supplier: "AB Industries",  date: "Today", by: "Ramesh", remarks: "--" },
@@ -54,9 +55,9 @@ fetchStockInData();
         </select>
       </div>
       <div className="tabs">
-        <button className="active">Stock In</button>
-        <button >Stock Out</button>
-        <button>Stock Transfer</button>
+        <button className="active"> <Link to="/stockin" >Stock In</Link></button>
+        <button ><Link to="/slideout" >Stock Out</Link></button>
+        <button><Link to="/stocktransfer" >Stock Transfer </Link></button>
       </div>
        <table className="stock-table">
        <thead>
