@@ -2,17 +2,19 @@ import React, { useState } from "react";
 import "./AddWarehouse.css";
 
 const AddWarehouse = () => {
+
+    
   const [formData, setFormData] = useState({
-    warehouse: "",
-    contactPerson: "",
+    Warehouse: "",
+    person: "",
     email: "",
     phone: "",
-    phoneWork: "",
+    phonew: "",
     address: "",
     city: "",
     state: "",
     country: "",
-    postalCode: "",
+    pcode: "",
     status: true,
   });
 
@@ -24,9 +26,35 @@ const AddWarehouse = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+//      const payload = {
+//     Warehouse: formData.warehouse,
+//     person: formData.contactPerson,
+//     email: formData.email,
+//     phone: formData.phone,
+//     phonew: formData.phoneWork,
+//     address: formData.address,
+//     city: formData.city,
+//     state: formData.state,
+//     country: formData.country,
+//     pcode: formData.postalCode,
+//     status: formData.status,
+//   };
     e.preventDefault();
-    console.log(formData);
+    try {
+        const response = await fetch("http://localhost:5000/api/addware/",{
+        method : "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+    });
+    const data = await response.json();
+    console.log("success", data);
+    
+    } catch (err) {
+        console.log(err);
+    }
   };
 
   return (
@@ -35,12 +63,12 @@ const AddWarehouse = () => {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Warehouse *</label>
-          <input type="text" name="warehouse" value={formData.warehouse} onChange={handleChange} required />
+          <input type="text" name="Warehouse" value={formData.Warehouse} onChange={handleChange} required />
         </div>
 
         <div className="form-group">
           <label>Contact Person *</label>
-          <select name="contactPerson" value={formData.contactPerson} onChange={handleChange} required>
+          <select name="person" value={formData.person} onChange={handleChange} required>
             <option value="">Select</option>
             <option value="Ajay Mehta">Ajay Mehta</option>
             <option value="Saurabh Kumar">Saurabh Kumar</option>
@@ -59,7 +87,7 @@ const AddWarehouse = () => {
           </div>
           <div className="form-group">
             <label>Phone (Work)</label>
-            <input type="text" name="phoneWork" value={formData.phoneWork} onChange={handleChange} />
+            <input type="text" name="phonew" value={formData.phonew} onChange={handleChange} />
           </div>
         </div>
 
@@ -97,7 +125,7 @@ const AddWarehouse = () => {
           </div>
           <div className="form-group">
             <label>Postal Code *</label>
-            <input type="text" name="postalCode" value={formData.postalCode} onChange={handleChange} required />
+            <input type="text" name="pcode" value={formData.pcode} onChange={handleChange} required />
           </div>
         </div>
 
