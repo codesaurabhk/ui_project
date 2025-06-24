@@ -10,6 +10,7 @@ import Warehouse from './components/Warehouse'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Sidebar from './components/Sidebar'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import AddWarehouse from './components/AddWarehouse'
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path='/warehouses' element={<Warehouse/>}/>
          <Route path="/stocktransfer" element={<StockTransfer />} />
            <Route path="/slideout" element={<SlideOut />} />
+           <Route path="/addwarehouse" element={<AddWarehouse />} />
             <Route path='*' element={<div className=" flex justify-center items-center h-screen  text-red-500 text-5xl">404 Page not Found </div>}/>
       </Routes>
     </div>

@@ -25,6 +25,7 @@ const Sidebar = () => {
           <div className="submenu-item"> <Link to="/stockin" >Stock Movements</Link></div>
           <div className="submenu-item"> <Link to="/warehouses">Warehouses</Link></div>
           <div className="submenu-item">Movement History Log</div>
+          <div className="submenu-item"><Link to="/addwarehouse">Add warehouse</Link> </div>
           
         </div>
       )}
@@ -33,7 +34,7 @@ const Sidebar = () => {
       <div className="menu-item"><RiDashboardHorizontalFill/> Documents</div>
       <div className="menu-item"><RiDashboardHorizontalFill/> Return & Audit</div>
       <div className="menu-item"><RiDashboardHorizontalFill/> Report</div>
-    </div>
+    </div> 
   );
 };
 
