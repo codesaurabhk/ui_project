@@ -27,7 +27,7 @@ const Warehouse = () => {
         }
         const data = await response.json();
         setWarehouse(data);
-        // console.log(data);
+        console.log(data);
         
       } catch (err) {
         setError(err.message);
@@ -42,19 +42,19 @@ const Warehouse = () => {
       <h2 className="selectw">Select Warehouse</h2> 
     {Warehouse.map((itm)=>(
       <div className="container-main">
-        <h5 className="heading">{itm.head}</h5>
+        <h5 className="heading">{itm.warehouse}</h5>
 
-        <span className="desc">{itm.desc}</span>
+        <span className="desc"> Noida, Sec-32 • {itm.person}</span>
         <div className="hero-sec">
           <div>
             <div className="first">
-              <span>{itm.stored}</span>
-              <h3>{itm.items}</h3>
+              <span>Total items Stored</span>
+              <h3>{itm.capacity} Items</h3>
               <br />
             </div>
           </div>
           <div className="progress-br">
-          <span>{itm.capacity}</span>
+          <span>Capacity Utilization</span>
           <br />
           <div
             className="progress"
@@ -70,8 +70,8 @@ const Warehouse = () => {
           </div></div>
 
           <div className="last">
-            <span>{itm.stock}</span>
-            <br /> <h3>{itm.no}</h3>
+            <span>Out of Stock item</span>
+            <br /> <h3>{itm.items} items</h3>
           </div>
         </div>
         <div>

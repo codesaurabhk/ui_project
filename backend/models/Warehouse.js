@@ -1,38 +1,63 @@
 const mongoose = require("mongoose");
 
 const warehouseSchema = new mongoose.Schema({
-    head: {
+    warehouse: {
         type: String,
         required: true,
     },
-    desc: {
+    person: {
         type: String,
         required: true,
     },
-    stored: {
+    
+    email: {
         type: String,
+        // required: true,
+    },
+    
+    phone: {
+        type: Number,
+        // required: true,
+    },
+    
+    phonew: {
+        type: Number,
+        
+    },
+    
+    address: {
+        type: String,
+        // required: true,
+    },
+    city : {
+        type: String,
+        // required: true,
+    },
+    state : {
+        type: String,
+        // required: true,
+    },
+    pcode : {
+        type: Number,
+        // required: true,
+    },
+    status : {
+        type: Boolean,
+        // required: true,
+    },
+    capacity:{
+        type: Number,
         required: true,
     },
-    items: {
-        type: String,
-        required: true,
-    },
-    capacity: {
-        type: String,
-        required: true,
-    },
-    progress: {
-        type: String,
-        required: true,
-    },
-    stock: {
-        type: String,
-        required: true,
-    },
-    no: {
-        type: String,
-        required: true,
-    },
-});
+    items : {
+        type : Number,
+        required : true,
+    }
+
+
+},{
+    timestamps : true,
+}
+);
 
 module.exports = mongoose.model("Warehouse", warehouseSchema);

@@ -22,7 +22,7 @@ const Sidebar = () => {
       </div>
       {openMenu === 'Warehouse' && (
         <div className="submenu">
-          <div className="submenu-item"> <Link to="/stockin" >Stock Movements</Link></div>
+          <div className="submenu-item"> <Link to="/stocktransfer" >Stock Movements</Link></div>
           <div className="submenu-item"> <Link to="/warehouses">Warehouses</Link></div>
           <div className="submenu-item">Movement History Log</div>
           <div className="submenu-item"><Link to="/addwarehouse">Add warehouse</Link> </div>

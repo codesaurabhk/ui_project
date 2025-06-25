@@ -5,7 +5,7 @@ const AddWarehouse = () => {
 
     
   const [formData, setFormData] = useState({
-    Warehouse: "",
+    warehouse: "",
     person: "",
     email: "",
     phone: "",
@@ -15,6 +15,8 @@ const AddWarehouse = () => {
     state: "",
     country: "",
     pcode: "",
+    capacity:"",
+    items:"",
     status: true,
   });
 
@@ -27,22 +29,10 @@ const AddWarehouse = () => {
   };
 
   const handleSubmit = async (e) => {
-//      const payload = {
-//     Warehouse: formData.warehouse,
-//     person: formData.contactPerson,
-//     email: formData.email,
-//     phone: formData.phone,
-//     phonew: formData.phoneWork,
-//     address: formData.address,
-//     city: formData.city,
-//     state: formData.state,
-//     country: formData.country,
-//     pcode: formData.postalCode,
-//     status: formData.status,
-//   };
+
     e.preventDefault();
     try {
-        const response = await fetch("http://localhost:5000/api/addware/",{
+        const response = await fetch("http://localhost:5000/api/warehouses/",{
         method : "POST",
         headers: {
             "Content-Type": "application/json",
@@ -63,7 +53,7 @@ const AddWarehouse = () => {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Warehouse *</label>
-          <input type="text" name="Warehouse" value={formData.Warehouse} onChange={handleChange} required />
+          <input type="text" name="warehouse" value={formData.warehouse} onChange={handleChange} required />
         </div>
 
         <div className="form-group">
@@ -72,6 +62,10 @@ const AddWarehouse = () => {
             <option value="">Select</option>
             <option value="Ajay Mehta">Ajay Mehta</option>
             <option value="Saurabh Kumar">Saurabh Kumar</option>
+            <option value="Akash kumar">Akash kumar</option>
+            <option value="Diwakar">Diwakar</option>
+            <option value="Aditya">Aditya</option>
+            <option value="Kasim">Kasim</option>
           </select>
         </div>
 
@@ -126,6 +120,14 @@ const AddWarehouse = () => {
           <div className="form-group">
             <label>Postal Code *</label>
             <input type="text" name="pcode" value={formData.pcode} onChange={handleChange} required />
+          </div>
+          <div className="form-group">
+            <label>Capacity *</label>
+            <input type="text" name="capacity" value={formData.capacity} onChange={handleChange} required />
+          </div>
+          <div className="form-group">
+            <label>items *</label>
+            <input type="text" name="items" value={formData.items} onChange={handleChange} required />
           </div>
         </div>
 

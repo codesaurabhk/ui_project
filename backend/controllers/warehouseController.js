@@ -6,9 +6,19 @@ exports.getAllWarehouses = async (req, res) => {
 };
 
 exports.createWarehouse = async (req, res) => {
+  try {
     const newWarehouse = new Warehouse(req.body);
     await newWarehouse.save();
-    res.status(201).json(newWarehouse);
+    res.status(201).json({
+      message: "Data created successfully",
+      data: newWarehouse,
+    });
+  } catch (err) {
+    res.status(400).json({
+      message: "Error creating warehouse",
+      error: err.message,
+    });
+  }
 };
 
 exports.updateWarehouse = async (req, res) => {
