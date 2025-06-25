@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
+import Button from 'react-bootstrap/Button';
+import Collapse from 'react-bootstrap/Collapse';
 import "./StockTransfer.css";
 import { Link } from "react-router-dom";
+import SlideOut from "./SlideOut";
+import StockIn from "./StockIn";
+
 
 // const stockOutData = [
 //   { quantity: "85 Kg", warehouse: "WH-01", towarehouse: "AB Industries",  date: "Today", by: "Ramesh", remarks: "--" },
@@ -33,6 +38,8 @@ const StockTransfer = () => {
     fetchStockInData();
       
     }, []);
+     const [open, setOpen] = useState(false);
+     const [activeComponent, setActiveComponent] = useState("");
   return (
     <div className="container">
       <div className="filters">
@@ -54,12 +61,50 @@ const StockTransfer = () => {
           <option>Select by status</option>
         </select>
       </div>
-      <div className="tabs">
-       <button > <Link to="/stockin" >Stock In</Link></button>
-        <button ><Link to="/slideout" >Stock Out</Link></button>
-        <button className="active"><Link to="/stocktransfer" >Stock Transfer </Link></button>
+       <div className="tabs">
+      <Button
+        onClick={() =>
+          setActiveComponent((prev) => (prev === "stockin" ? "" : "stockin"))
+        }
+        aria-controls="stockin-collapse"
+        aria-expanded={activeComponent === "stockin"}
+      >
+        Stock In
+      </Button>
+
+      <Button
+        onClick={() =>
+          setActiveComponent((prev) => (prev === "stockout" ? "" : "stockout"))
+        }
+        aria-controls="stockout-collapse"
+        aria-expanded={activeComponent === "stockout"}
+      >
+        Stock Out
+      </Button>
+      <Button
+        onClick={() =>
+          setActiveComponent((prev) => (prev === "stocktransfer" ? "" : "stocktransfer"))
+        }
+        aria-controls="stockout-collapse"
+        aria-expanded={activeComponent === "stocktransfer"}
+      >
+        Stock Transfer
+      </Button>
+    </div>
+         
+           <Collapse in={activeComponent === "stockin"}>
+      <div id="stockin-collapse">
+        <StockIn />
       </div>
-       <table className="stock-table">
+    </Collapse>
+
+    <Collapse in={activeComponent === "stockout"}>
+      <div id="stockout-collapse">
+        <SlideOut />
+      </div>
+    </Collapse>
+    <Collapse in={activeComponent === "stocktransfer"}>
+      <table id="stockout-collapse" className="stock-table">
        <thead>
           <tr>
             
@@ -89,6 +134,15 @@ const StockTransfer = () => {
           ))}
         </tbody>
         </table>
+    </Collapse>
+        
+        
+        
+
+       
+      
+        
+      
      </div>
      
     

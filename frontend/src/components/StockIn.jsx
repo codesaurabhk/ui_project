@@ -35,7 +35,7 @@ fetchStockInData();
 }, []);
   return (
     <div className="container">
-      <div className="filters">
+      {/* <div className="filters">
         <div className="input-search-wrapper">
           <input
             className="input-serch"
@@ -53,12 +53,12 @@ fetchStockInData();
         <select disabled>
           <option>Select by status</option>
         </select>
-      </div>
-      <div className="tabs">
-        <button className="active"> <Link to="/stockin" >Stock In</Link></button>
+      </div> */}
+      {/* <div className="tabs">
+        <button className="active"> Stock In</button>
         <button ><Link to="/slideout" >Stock Out</Link></button>
         <button><Link to="/stocktransfer" >Stock Transfer </Link></button>
-      </div>
+      </div> */}
        <table className="stock-table">
        <thead>
           <tr>

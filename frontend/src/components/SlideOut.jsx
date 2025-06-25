@@ -37,7 +37,7 @@ const SlideOut = () => {
   }, []);
   return (
     <div className="container">
-      <div className="filters">
+      {/* <div className="filters">
         <div className="input-search-wrapper">
           <input
             className="input-serch"
@@ -55,15 +55,13 @@ const SlideOut = () => {
         <select disabled>
           <option>Select by status</option>
         </select>
-      </div>
-      <div className="tabs">
-        {/* <button > <Link to="/stockin" >Stock In</Link></button>
-        <button className="active"><Link to="/stockout" >Stock Out</Link></button>
-        <button>Stock Transfer</button> */}
+      </div> */}
+      {/* <div className="tabs">
         <button > <Link to="/stockin" >Stock In</Link></button>
-        <button className="active"><Link to="/slideout" >Stock Out</Link></button>
+        <button className="active">Stock Out</button>
         <button><Link to="/stocktransfer" >Stock Transfer </Link></button>
-      </div>
+      </div> */}
+      
        <table className="stock-table">
        <thead>
           <tr>
