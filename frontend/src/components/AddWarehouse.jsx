@@ -5,8 +5,10 @@ const AddWarehouse = () => {
 
     
   const [formData, setFormData] = useState({
-    warehouse: "",
-    person: "",
+    
+warehouse: "",
+    
+person: "",
     email: "",
     phone: "",
     phonew: "",

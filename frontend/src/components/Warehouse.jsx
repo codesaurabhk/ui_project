@@ -27,8 +27,8 @@ const Warehouse = () => {
         }
         const data = await response.json();
         setWarehouse(data);
-        console.log(data);
-        
+        // console.log(data);
+        // let value = data.capacity;
       } catch (err) {
         setError(err.message);
       }
@@ -36,11 +36,13 @@ const Warehouse = () => {
   fetchWarehouseData();
     
   }, []);
+  
   return (
     <div className="fst">
     <div className="main-div">
       <h2 className="selectw">Select Warehouse</h2> 
     {Warehouse.map((itm)=>(
+      
       <div className="container-main">
         <h5 className="heading">{itm.warehouse}</h5>
 
@@ -64,8 +66,8 @@ const Warehouse = () => {
             aria-valuemin="0"
             aria-valuemax="100"
           >
-            <div className="progress-bar gradient-bar" style={{ width: itm.progress }}>
-              {itm.progress} 
+            <div className="progress-bar gradient-bar" style={{ width: `${(100-(itm.capacity/itm.items))}%` }}>
+              {`${Math.round(100-((itm.items/itm.capacity)*100))}%`} 
             </div>
           </div></div>
 
