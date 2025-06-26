@@ -16,6 +16,8 @@ import "./Warehouse.css";
 // ];
 
 const Warehouse = () => {
+
+
    const [Warehouse, setWarehouse] = useState([]);
    const [Error, setError] = useState(null);
   useEffect(() => {

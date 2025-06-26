@@ -21,6 +21,7 @@ person: "",
     items:"",
     status: true,
   });
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -41,17 +42,40 @@ person: "",
         },
         body: JSON.stringify(formData),
     });
+      if (!response.ok) {
+      throw new Error("Failed to submit form");
+    }
     const data = await response.json();
     console.log("success", data);
     
-    } catch (err) {
+   
+   setFormData({
+      warehouse: "",
+      person: "",
+      email: "",
+      phone: "",
+      phonew: "",
+      address: "",
+      city: "",
+      state: "",
+      country: "",
+      pcode: "",
+      capacity: "",
+      items: "",
+      status: true,
+    });
+    setSuccessMessage("Form submitted successfully!");
+     setTimeout(() => setSuccessMessage(""), 3000);
+      } catch (err) {
         console.log(err);
     }
   };
-
   return (
     <div className="form-container">
       <h2>Add Warehouse</h2>
+       {successMessage && (
+    <div className="success-message">{successMessage}</div>
+  )}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Warehouse *</label>
@@ -73,13 +97,13 @@ person: "",
 
         <div className="form-group">
           <label>Email *</label>
-          <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+          <input type="email" name="email" value={formData.email} onChange={handleChange}  />
         </div>
 
         <div className="form-row">
           <div className="form-group">
             <label>Phone *</label>
-            <input type="text" name="phone" value={formData.phone} onChange={handleChange} required />
+            <input type="text" name="phone" value={formData.phone} onChange={handleChange}  />
           </div>
           <div className="form-group">
             <label>Phone (Work)</label>
@@ -89,7 +113,7 @@ person: "",
 
         <div className="form-group">
           <label>Address *</label>
-          <input type="text" name="address" value={formData.address} onChange={handleChange} required />
+          <input type="text" name="address" value={formData.address} onChange={handleChange} />
         </div>
 
         <div className="form-row">
@@ -114,14 +138,14 @@ person: "",
         <div className="form-row">
           <div className="form-group">
             <label>Country *</label>
-            <select name="country" value={formData.country} onChange={handleChange} required>
+            <select name="country" value={formData.country} onChange={handleChange} >
               <option value="">Select</option>
               <option value="India">India</option>
             </select>
           </div>
           <div className="form-group">
             <label>Postal Code *</label>
-            <input type="text" name="pcode" value={formData.pcode} onChange={handleChange} required />
+            <input type="text" name="pcode" value={formData.pcode} onChange={handleChange}  />
           </div>
           <div className="form-group">
             <label>Capacity *</label>
