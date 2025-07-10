@@ -26,6 +26,7 @@ const Sidebar = () => {
           <div className="submenu-item"> <Link to="/warehouses">Warehouses</Link></div>
           <div className="submenu-item">Movement History Log</div>
           <div className="submenu-item"><Link to="/addwarehouse">Add warehouse</Link> </div>
+          <div className="submenu-item"><Link to="/selectWarehouse">Select warehouse</Link> </div>
           
         </div>
       )}

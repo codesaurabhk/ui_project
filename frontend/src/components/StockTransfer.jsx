@@ -81,7 +81,7 @@ const StockTransfer = () => {
       >
         Stock Out
       </Button>
-      <Button
+      <Button 
         onClick={() =>
           setActiveComponent((prev) => (prev === "stocktransfer" ? "" : "stocktransfer"))
         }
