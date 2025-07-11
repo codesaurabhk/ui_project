@@ -1,0 +1,357 @@
+/* ────────────────── Layout helpers ────────────────── */
+.maincontainer {
+    width: 100%;
+    margin-left: 30px;
+}
+
+.headermn {
+    background: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    font-family: "Inter", sans-serif;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+}
+
+.wh-overview-card {
+    /* background: #fff; */
+    /* border-radius: 8px; */
+    /* padding: 15px; */
+    /* width: 100%; */
+    /* font-family: "Inter", sans-serif; */
+    /* color: #222; */
+
+
+    /* gap: 24px; */
+}
+
+.search-icon {
+
+    position: absolute;
+    top: 38%;
+    /* 1️⃣ push to halfway down the box           */
+    /* left: 12px; */
+    right: -35px;
+    /* 2️⃣ horizontal offset inside the input     */
+    transform: translateY(-50%);
+    /* 3️⃣ pull it up by 50 % of its own height */
+    color: #98a2b3;
+    pointer-events: none;
+
+    /* so clicks hit the input */
+}
+
+
+
+/* ────────── Search & filters row ────────── */
+.wh-filters-row {
+    display: flex;
+    gap: 16px;
+}
+
+.wh-search-box {
+    position: relative;
+    width: 35%;
+    /* set any width you prefer, e.g. 180px */
+    flex-shrink: 0;
+}
+
+
+.wh-search {
+    width: 100%;
+    padding: 8px 12px 8px 36px;
+    /* left‑pad for the icon */
+    border: 1px solid #d0d5dd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.wh-drop1 {
+    width: 40%;
+    margin-left: 50px;
+    padding: 8px 12px;
+    border: 1px solid #d0d5dd;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #fff;
+    margin-bottom: 10px;
+}
+
+.wh-drop2 {
+    width: 20%;
+    /* margin-left: 50px; */
+    padding: 8px 12px;
+    border: 1px solid #d0d5dd;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #fff;
+    color: rgb(178, 176, 176);
+    margin-bottom: 10px;
+}
+
+/* ────────── Warehouse heading ────────── */
+.oviewtle {
+    font-size: larger;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+.wh-header {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-bottom: 18px;
+    /* space above the line */
+    border-bottom: 1px solid #e4e6e9;
+}
+
+.wh-title {
+    /* font-weight: 600; */
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #007aff;
+}
+
+.wh-badge {
+    background: #e5f0ff;
+    color: #06f0a2;
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.wh-manager {
+    font-size: 14px;
+    color: #667085;
+}
+
+/* ────────── Capacity & categories ────────── */
+.wh-capacity-row {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 10px;
+    width: 100%;
+
+}
+
+.wh-capacity {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    /* width: 50%; */
+
+}
+
+.wh-capacity-pct {
+    font-size: 12px;
+    color: #667085;
+}
+
+.wh-capacity-bar {
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.wh-capacity-fill {
+    height: 100%;
+    background: #007aff;
+}
+
+.wh-categories-served {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-left: 60px;
+    /* width: 50%; */
+}
+
+.wh-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.chip {
+    background: #F2FAFF;
+    color: #344054;
+    padding: 4px 10px;
+    border-radius: 16px;
+    font-size: 12px;
+}
+
+/* ────────── KPI cards ────────── */
+.wh-kpi-row {
+    display: flex;
+    gap: 16px;
+    width: 50%;
+}
+
+.wh-kpi-card {
+    flex: 1;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.wh-kpi-card h4 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #667085;
+}
+
+.kpi-value {
+    font-size: 28px;
+    font-weight: 600;
+    color: #111;
+    padding-bottom: 18px;
+
+    /* space above the line */
+    border-bottom: 1px solid #e4e6e9;
+}
+
+.kpi-foot {
+    font-size: 12px;
+    color: rgb(131, 131, 132);
+    margin-top: auto;
+}
+
+.boldert {
+    font-weight: 600;
+    font-size: small;
+    color: #111;
+}
+
+/* ────────── Top products & categories ────────── */
+.wh-top-row {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    gap: 16px;
+
+    border-radius: 8px;
+    font-family: "Inter", sans-serif;
+    margin-top: 15px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.section-header select {
+    border: 1px solid #d0d5dd;
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 12px;
+    background: #fff;
+}
+
+/* Product list */
+.wh-top-products {
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    background: #fff;
+    padding: 16px;
+}
+
+.product-row {
+    display: grid;
+    grid-template-columns: 32px 1fr 1.2fr 120px;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+/* 
+.prod-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #ffe0e0;
+    
+} */
+
+.prod-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.prod-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+
+.prod-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.prod-name {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.prod-desc {
+    font-size: 11px;
+    color: #939aa5;
+}
+
+.prod-progress {
+    height: 6px;
+    background: #e6e6e6;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.prod-progress-fill {
+    height: 100%;
+    background: #007aff;
+}
+
+.prod-left {
+    font-size: 11px;
+    color: #939aa5;
+}
+
+/* Top categories chart */
+.wh-top-categories {
+    border: 1px solid #e6e6e6;
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+/* ────────── Stock Activity ────────── */
+.wh-stock-activity {
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    padding: 16px;
+    background: #fff;
+    margin-top: 15px;
+}
+
+.wh-stock-activity .section-header {
+    margin-bottom: 16px;
+}
