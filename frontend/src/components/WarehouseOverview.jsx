@@ -52,6 +52,11 @@ const stockActivityData = [
 const PIE_COLORS = ["#007AFF", "#2290FF", "#54A7FF", "#7AB8FF", "#A0C9FF", "#C6DBFF"];
 
 const WarehouseOverview = () => {
+  const totalCategoryValue = topCategoriesData.reduce(
+    (sum, item) => sum + item.value,
+    0
+  );
+
   return (
     <div className="maincontainer">
       <div className="wh-filters-row">
@@ -137,7 +142,7 @@ const WarehouseOverview = () => {
           <div className="wh-top-products">
             <div className="section-header">
               <span>Top Selling Products</span>
-              <select>
+              <select className="weekk">
                 <option>This Week</option>
                 <option>This Month</option>
               </select>
@@ -167,7 +172,7 @@ const WarehouseOverview = () => {
           <div className="wh-top-categories">
             <div className="section-header">
               <span>Top Selling Categories</span>
-              <select>
+              <select className="weekk">
                 <option>This Week</option>
               </select>
             </div>
@@ -186,7 +191,10 @@ const WarehouseOverview = () => {
                     <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />
                   ))}
                 </Pie>
-                <Legend verticalAlign="middle" align="right" layout="vertical" />
+                <Legend verticalAlign="middle" align="right" layout="vertical" formatter={(name, entry) => {
+                  const pct = ((entry.payload.value / totalCategoryValue) * 100).toFixed(0);
+                  return `${name}  (${pct}%)`;   // → e.g. “Apple  30%”
+                }} />
               </PieChart>
             </ResponsiveContainer>
           </div>
@@ -204,6 +212,13 @@ const WarehouseOverview = () => {
               <XAxis dataKey="date" />
               <YAxis />
               <Tooltip />
+              <Legend
+                verticalAlign="top"
+                align="right"
+                iconType="square"      /* or "square" */
+                iconSize={10}
+                wrapperStyle={{ lineHeight: "24px" }}
+              />
               <Bar dataKey="in" name="Stock In" fill="#7AB8FF" barSize={30} />
               <Bar dataKey="out" name="Stock Out" fill="#007AFF" barSize={30} />
             </BarChart>
