@@ -1,0 +1,163 @@
+/* ===== Base layout ===== */
+.warehouse‑container {
+  width: 100%;
+  padding: 24px;
+  background: #f5f7fa;
+  min-height: 100vh;
+  font: 14px/1.4 "Segoe UI", sans‑serif;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.search-wrapper {
+  position: relative;
+  flex: 1;
+  min-width: 280px;
+}
+
+.search-wrapper input {
+  width: 90%;
+  padding: 10px 40px 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+}
+
+.search-wrapper i {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  pointer-events: none;
+}
+
+.filter-selects {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-selects select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  min-width: 180px;
+  background: white;
+}
+
+/* Responsive: stack on smaller screens */
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-selects {
+    flex-direction: column;
+  }
+}
+
+
+/* ===== Table ===== */
+.table‑wrapper {
+  overflow-x: auto;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.stock‑table {
+  width: 100%;
+  min-width: 1000px;
+  border-collapse: collapse;
+}
+
+.stock‑table thead {
+  background: #0b71df;
+  color: #fff;
+}
+
+.stock‑table th,
+.stock‑table td {
+  padding: 12px 16px;
+  border-top: 1px solid #f0f0f0;
+  text-align: left;
+  vertical-align: top;
+}
+
+.stock‑table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+/* ===== First column (checkbox + name) ===== */
+.product‑cell {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.product‑cell input {
+  margin-top: 4px;
+  transform: scale(1.2);
+}
+
+.sku {
+  font-size: 12px;
+  color: #888;
+}
+
+/* ===== Badges ===== */
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge.movement.stock-in {
+  background: #e6fff2;
+  color: #10b981;
+}
+
+.badge.movement.stock-out {
+  background: #ffeaea;
+  color: #ef4444;
+}
+
+.badge.movement.transfer {
+  background: #fff4d6;
+  color: #f59e0b;
+}
+
+.badge.movement.incoming {
+  background: #e0f7ff;
+  color: #0ea5e9;
+}
+
+.badge.status.completed {
+  background: #e6fff2;
+  color: #10b981;
+}
+
+.badge.status.pending {
+  background: #fff4d6;
+  color: #f59e0b;
+}
+
+/* ===== Responsive tweaks ===== */
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+  }
+}

@@ -20,26 +20,26 @@ import StockIn from "./StockIn";
 // ];
 
 const StockTransfer = () => {
-   const [StocktransferData, setStocktransferData] = useState([]);
-     const [Error, setError] = useState(null);
-    useEffect(() => {
-      const fetchStockInData = async ()=>{
-        try {
-          const response = await fetch("http://localhost:5000/api/stocktransfer/");
-          if (!response.ok) {
-            throw new Error ("Failed to fetch stock in data");
-          }
-          const data = await response.json();
-          setStocktransferData(data);
-        } catch (err) {
-          setError(err.message);
+  const [StocktransferData, setStocktransferData] = useState([]);
+  const [Error, setError] = useState(null);
+  useEffect(() => {
+    const fetchStockInData = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/stocktransfer/");
+        if (!response.ok) {
+          throw new Error("Failed to fetch stock in data");
         }
-      };
+        const data = await response.json();
+        setStocktransferData(data);
+      } catch (err) {
+        setError(err.message);
+      }
+    };
     fetchStockInData();
-      
-    }, []);
-     const [open, setOpen] = useState(false);
-     const [activeComponent, setActiveComponent] = useState("");
+
+  }, []);
+  const [open, setOpen] = useState(false);
+  const [activeComponent, setActiveComponent] = useState("");
   return (
     <div className="container">
       <div className="filters">
@@ -61,91 +61,91 @@ const StockTransfer = () => {
           <option>Select by status</option>
         </select>
       </div>
-       <div className="tabs">
-      <Button
-        onClick={() =>
-          setActiveComponent((prev) => (prev === "stockin" ? "" : "stockin"))
-        }
-        aria-controls="stockin-collapse"
-        aria-expanded={activeComponent === "stockin"}
-      >
-        Stock In
-      </Button>
+      <div className="tabs">
+        <Button
+          onClick={() =>
+            setActiveComponent((prev) => (prev === "stockin" ? "" : "stockin"))
+          }
+          aria-controls="stockin-collapse"
+          aria-expanded={activeComponent === "stockin"}
+        >
+          Stock In
+        </Button>
 
-      <Button
-        onClick={() =>
-          setActiveComponent((prev) => (prev === "stockout" ? "" : "stockout"))
-        }
-        aria-controls="stockout-collapse"
-        aria-expanded={activeComponent === "stockout"}
-      >
-        Stock Out
-      </Button>
-      <Button 
-        onClick={() =>
-          setActiveComponent((prev) => (prev === "stocktransfer" ? "" : "stocktransfer"))
-        }
-        aria-controls="stockout-collapse"
-        aria-expanded={activeComponent === "stocktransfer"}
-      >
-        Stock Transfer
-      </Button>
-    </div>
-         
-           <Collapse in={activeComponent === "stockin"}>
-      <div id="stockin-collapse">
-        <StockIn />
+        <Button
+          onClick={() =>
+            setActiveComponent((prev) => (prev === "stockout" ? "" : "stockout"))
+          }
+          aria-controls="stockout-collapse"
+          aria-expanded={activeComponent === "stockout"}
+        >
+          Stock Out
+        </Button>
+        <Button
+          onClick={() =>
+            setActiveComponent((prev) => (prev === "stocktransfer" ? "" : "stocktransfer"))
+          }
+          aria-controls="stockout-collapse"
+          aria-expanded={activeComponent === "stocktransfer"}
+        >
+          Stock Transfer
+        </Button>
       </div>
-    </Collapse>
 
-    <Collapse in={activeComponent === "stockout"}>
-      <div id="stockout-collapse">
-        <SlideOut />
-      </div>
-    </Collapse>
-    <Collapse in={activeComponent === "stocktransfer"}>
-      <table id="stockout-collapse" className="stock-table">
-       <thead>
-          <tr>
-            
-            <th>Product Name</th>
-            <th>Quantity</th>
-            <th>From Warehouse</th>
-            <th>To Warehouse</th>
-            <th>Date Of Transfer</th>
-            {/* <th>Stock In By</th> */}
-            <th>Initiated By</th>
-            <th>Remarks / Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          {StocktransferData.map((item, idx) => (
-            <tr key={idx}>
-              <td className="product-name"><span  className="checkbox"><input type="checkbox"/></span><span>Product 01<br /><span className="sku">(SKU)</span></span></td>
-      
-              <td>{item.quantity}</td>
-              <td>{item.warehouse}</td>
-              <td>{item.towarehouse}</td>
-              {/* <td><span className={`badge ${item.purpose.toLowerCase()}`}>{item.purpose}</span></td> */}
-              <td>{item.date}</td>
-              <td>{item.by}</td>
-              <td>{item.remarks}</td>
+      <Collapse in={activeComponent === "stockin"}>
+        <div id="stockin-collapse">
+          <StockIn />
+        </div>
+      </Collapse>
+
+      <Collapse in={activeComponent === "stockout"}>
+        <div id="stockout-collapse">
+          <SlideOut />
+        </div>
+      </Collapse>
+      <Collapse in={activeComponent === "stocktransfer"}>
+        <table id="stockout-collapse" className="stock-table">
+          <thead>
+            <tr>
+
+              <th>Product Name</th>
+              <th>Quantity</th>
+              <th>From Warehouse</th>
+              <th>To Warehouse</th>
+              <th>Date Of Transfer</th>
+              {/* <th>Stock In By</th> */}
+              <th>Initiated By</th>
+              <th>Remarks / Notes</th>
             </tr>
-          ))}
-        </tbody>
-        </table>
-    </Collapse>
-        
-        
-        
+          </thead>
+          <tbody>
+            {StocktransferData.map((item, idx) => (
+              <tr key={idx}>
+                <td className="product-name"><span className="checkbox"><input type="checkbox" /></span><span>Product 01<br /><span className="sku">(SKU)</span></span></td>
 
-       
-      
-        
-      
-     </div>
-     
-    
+                <td>{item.quantity}</td>
+                <td>{item.warehouse}</td>
+                <td>{item.towarehouse}</td>
+                {/* <td><span className={`badge ${item.purpose.toLowerCase()}`}>{item.purpose}</span></td> */}
+                <td>{item.date}</td>
+                <td>{item.by}</td>
+                <td>{item.remarks}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </Collapse>
+
+
+
+
+
+
+
+
+    </div>
+
+
   );
 };
 

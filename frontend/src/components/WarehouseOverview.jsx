@@ -39,13 +39,13 @@ const topCategoriesData = [
 ];
 
 const stockActivityData = [
-  { date: "12 Jun", in: 220, out: 290 },
-  { date: "13 Jun", in: 80, out: 60 },
-  { date: "14 Jun", in: 410, out: 250 },
-  { date: "15 Jun", in: 350, out: 300 },
-  { date: "16 Jun", in: 300, out: 380 },
-  { date: "17 Jun", in: 90, out: 270 },
-  { date: "18 Jun", in: 430, out: 460 },
+  { date: "12 Jun", in: 220, out: 290 },
+  { date: "13 Jun", in: 80, out: 60 },
+  { date: "14 Jun", in: 410, out: 250 },
+  { date: "15 Jun", in: 350, out: 300 },
+  { date: "16 Jun", in: 300, out: 380 },
+  { date: "17 Jun", in: 90, out: 270 },
+  { date: "18 Jun", in: 430, out: 460 },
 ];
 
 /* Colours for charts */
@@ -82,10 +82,10 @@ const WarehouseOverview = () => {
         {/* </div> */}
       </div>
       <div className="wh-overview-card">
-        {/* ───────────── Top Search / Filters row ───────────── */}
+        {/*  Top Search / Filters row  */}
 
 
-        {/* ───────────── Warehouse header ───────────── */}
+        {/*  Warehouse header  */}
         <div className="headermn">
           <div className="wh-header">
             <div className="oviewtle">Warehouse Overview</div>
@@ -96,7 +96,7 @@ const WarehouseOverview = () => {
             <div className="wh-manager">Ramesh Verma</div>
           </div>
 
-          {/* ───────────── Capacity + Categories ───────────── */}
+          {/*  Capacity + Categories  */}
           <div className="wh-capacity-row">
             <div className="wh-capacity">
               <span>Capacity Utilization</span>
@@ -121,7 +121,7 @@ const WarehouseOverview = () => {
             </div>
           </div>
 
-          {/* ───────────── KPI cards ───────────── */}
+          {/*  KPI cards  */}
           <div className="wh-kpi-row">
             <div className="wh-kpi-card">
               <h4>Total Item Stored</h4>
@@ -136,7 +136,7 @@ const WarehouseOverview = () => {
           </div>
         </div>
 
-        {/* ───────────── Top products & categories ───────────── */}
+        {/*  Top products & categories */}
         <div className="wh-top-row">
           {/* Left column: Top products */}
           <div className="wh-top-products">
@@ -200,7 +200,7 @@ const WarehouseOverview = () => {
           </div>
         </div>
 
-        {/* ───────────── Stock activity chart ───────────── */}
+        {/*  Stock activity chart */}
         <div className="wh-stock-activity">
           <div className="section-header">
             <span>Stock Activity</span>
@@ -215,12 +215,12 @@ const WarehouseOverview = () => {
               <Legend
                 verticalAlign="top"
                 align="right"
-                iconType="square"      /* or "square" */
+                iconType="square"      
                 iconSize={10}
                 wrapperStyle={{ lineHeight: "24px" }}
               />
-              <Bar dataKey="in" name="Stock In" fill="#7AB8FF" barSize={30} />
-              <Bar dataKey="out" name="Stock Out" fill="#007AFF" barSize={30} />
+              <Bar dataKey="in" name="Stock In" fill="#7AB8FF" barSize={30} />
+              <Bar dataKey="out" name="Stock Out" fill="#007AFF" barSize={30} />
             </BarChart>
           </ResponsiveContainer>
         </div>

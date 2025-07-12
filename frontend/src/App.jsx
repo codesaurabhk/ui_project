@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AddWarehouse from './components/AddWarehouse'
 import SelectWarehouse from './components/SelectWarehouse'
 import WarehouseOverview from './components/WarehouseOverview'
+import WarehouseAll from './components/WarehouseAll'
 
 
 function App() {
@@ -19,23 +20,24 @@ function App() {
 
   return (
     <>
-<Router>
- <div style={{ padding: '20px', display : 'flex' }}>
-    
-      <Sidebar />
-      
-      <Routes>
-         <Route path='/stockin' element={<StockIn/>}/>
-        <Route path='/warehouses' element={<Warehouse/>}/>
-         <Route path="/stocktransfer" element={<StockTransfer />} />
-           <Route path="/slideout" element={<SlideOut />} />
-           <Route path="/addwarehouse" element={<AddWarehouse />} />
-           <Route path="/selectWarehouse" element={<SelectWarehouse/>} />
-           <Route path="/warehouseoverview" element={<WarehouseOverview/>} />
-            <Route path='*' element={<div className=" flex justify-center items-center h-screen  text-red-500 text-5xl">404 Page not Found </div>}/>
-      </Routes>
-    </div>
-    </Router>
+      <Router>
+        <div style={{ padding: '20px', display: 'flex' }}>
+
+          <Sidebar />
+
+          <Routes>
+            <Route path='/stockin' element={<StockIn />} />
+            <Route path='/warehouses' element={<Warehouse />} />
+            <Route path="/stocktransfer" element={<StockTransfer />} />
+            <Route path="/slideout" element={<SlideOut />} />
+            <Route path="/addwarehouse" element={<AddWarehouse />} />
+            <Route path="/selectWarehouse" element={<SelectWarehouse />} />
+            <Route path="/warehouseoverview" element={<WarehouseOverview />} />
+            <Route path="/warehouseall" element={<WarehouseAll />} />
+            <Route path='*' element={<div className=" flex justify-center items-center h-screen  text-red-500 text-5xl">404 Page not Found </div>} />
+          </Routes>
+        </div>
+      </Router>
     </>
   )
 }
