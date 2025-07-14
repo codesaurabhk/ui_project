@@ -15,6 +15,7 @@ import {
 import { FiSearch } from "react-icons/fi"
 import "./WarehouseOverview.css"
 import apple from "../assets/apple.jpeg";
+import { FaBoxOpen } from "react-icons/fa6";
 
 const capacityUsed = 87;                           // %
 const totalItemsStored = 82424;
@@ -124,13 +125,23 @@ const WarehouseOverview = () => {
           {/*  KPI cards  */}
           <div className="wh-kpi-row">
             <div className="wh-kpi-card">
-              <h4>Total Item Stored</h4>
-              <span className="kpi-value">{totalItemsStored.toLocaleString()}</span>
+              <div className="iconset">
+                <div className="iconsbox"><FaBoxOpen /></div>
+                <div>
+                  <h4>Total Item Stored</h4>
+                  <span className="kpi-value">{totalItemsStored.toLocaleString()}</span>
+                </div>
+              </div>
               <div className="kpi-foot"> <span className="boldert">+ 652</span> Product added this week <span className="boldert">→</span></div>
             </div>
             <div className="wh-kpi-card">
-              <h4>Out of stocks items</h4>
-              <span className="kpi-value">{outOfStockItems}</span>
+              <div className="iconset">
+                <div className="iconsbox"><FaBoxOpen /></div>
+
+                <div>
+                  <h4>Out of stocks items</h4>
+                  <span className="kpi-value">{outOfStockItems}</span>
+                </div></div>
               <div className="kpi-foot"><span className="boldert">11</span> Items getting Out of Stocks Soon. <span className="boldert">→</span> </div>
             </div>
           </div>
@@ -215,7 +226,7 @@ const WarehouseOverview = () => {
               <Legend
                 verticalAlign="top"
                 align="right"
-                iconType="square"      
+                iconType="square"
                 iconSize={10}
                 wrapperStyle={{ lineHeight: "24px" }}
               />
@@ -230,4 +241,3 @@ const WarehouseOverview = () => {
 };
 
 export default WarehouseOverview;
-   

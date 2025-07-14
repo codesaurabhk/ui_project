@@ -87,6 +87,7 @@ export default function WarehouseAll() {
                                     <span className={`badge movement ${slug(r.movement)}`}>
                                         {r.movement}
                                     </span>
+                                    
                                 </td>
                                 <td>{r.from}</td>
                                 <td>{r.to}</td>
@@ -102,7 +103,7 @@ export default function WarehouseAll() {
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div >
     );
 }
 
